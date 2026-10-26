@@ -47,7 +47,7 @@ body {
 /* 右下角分數 */
 #score-display {
   position: absolute;
-  bottom: 12px;
+  bottom: 15px;
   right: 18px;
   height: 36px;
   display: flex;
@@ -212,7 +212,7 @@ body {
 
 #nav-box {
   position: absolute;
-  bottom: 12px;
+  bottom: 15px;
   left: 18px;
   margin: 0;
   z-index: 30;
