@@ -3,21 +3,21 @@ const pages = [
   // 第 1-3 頁：1.png
   {
     page: 1,
-    bg: "1.png",
+    bg: "1-1.png",
     type: "dialogue",
-    text: "變法 WhatsApp Group（1/3）"
+    text: " "
   },
   {
     page: 2,
-    bg: "1.png",
+    bg: "1-2.png",
     type: "dialogue",
-    text: "變法 WhatsApp Group（2/3）"
+    text: " "
   },
   {
     page: 3,
-    bg: "1.png",
+    bg: "1-3.png",
     type: "dialogue",
-    text: "變法 WhatsApp Group（3/3）"
+    text: " "
   },
 
   // 第 4 頁：2.png
