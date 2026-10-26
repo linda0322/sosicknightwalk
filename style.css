@@ -152,25 +152,27 @@ body {
 
 /* 第 31 頁：多選題列表 */
 .checkbox-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   margin-top: 4px;
 }
 
 .checkbox-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 6px 10px;
+  padding: 8px 8px;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.25;
   cursor: pointer;
 }
 
 .checkbox-item input {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  flex-shrink: 0;
 }
 
 /* 文字輸入題（第 24 頁） */
