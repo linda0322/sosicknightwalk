@@ -201,12 +201,14 @@ body {
   background: #ffd166;
   color: #163047;
   border: none;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
   transition: opacity 0.2s;
+  width: fit-content;
+  align-self: center;
 }
 
 .action-btn:hover, .next-btn:hover {
