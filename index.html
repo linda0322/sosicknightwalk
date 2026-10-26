@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>記承天寺夜遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app-wrapper">
+    <!-- iPhone 遊戲主畫面 (9:16) -->
+    <div id="game-container">
+      
+      <!-- 第 15 頁專用：畫面上方電話輸入與場景隱形互動按鈕 -->
+      <div id="room-overlay" class="hidden">
+        <!-- 半透明無框長方形電話輸入欄 -->
+        <div id="phone-input-bar">
+          <div class="phone-title">請輸入懷民的 11 位電話號碼（500 分）</div>
+          <div class="phone-fields">
+            <input type="tel" id="phone-p1" maxlength="3" placeholder="___">
+            <span>-</span>
+            <input type="tel" id="phone-p2" maxlength="4" placeholder="____">
+            <span>-</span>
+            <input type="tel" id="phone-p3" maxlength="4" placeholder="____">
+          </div>
+          <button id="phone-submit-btn" class="action-btn">撥打電話 📞</button>
+          <div id="phone-feedback" class="feedback"></div>
+        </div>
+
+        <!-- 5 個隱形熱點按鈕 (對應 3.png 座標) -->
+        <!-- 座標 1：紙條（桌上右側） -->
+        <button class="hotspot" id="hs-paper" title="紙條"></button>
+        <!-- 座標 2：右邊上方櫃 -->
+        <button class="hotspot" id="hs-top-drawer" title="右邊上方櫃"></button>
+        <!-- 座標 3：右邊下邊櫃 -->
+        <button class="hotspot" id="hs-bottom-drawer" title="右邊下邊櫃"></button>
+        <!-- 座標 4：左邊櫃 -->
+        <button class="hotspot" id="hs-left-cabinet" title="左邊櫃"></button>
+        <!-- 座標 5：麻雀牌（桌上左側） -->
+        <button class="hotspot" id="hs-mahjong" title="麻雀牌"></button>
+      </div>
+
+      <!-- 畫面下半部：對白及題目互動區 -->
+      <div id="dialogue-area">
+        <div id="page-indicator">Page 1 / 32</div>
+        <div id="content-box"></div>
+        <div id="feedback-box" class="feedback"></div>
+        <div id="nav-box">
+          <button id="next-btn" class="next-btn">下一頁 ▶</button>
+        </div>
+      </div>
+
+      <!-- 右下角分數顯示 -->
+      <div id="score-display">分數：<span id="score-val">0</span></div>
+
+      <!-- 彈出式線索 Modal -->
+      <div id="clue-modal" class="modal hidden">
+        <div class="modal-content">
+          <button id="close-modal" class="close-btn">✖</button>
+          <div id="modal-body"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
