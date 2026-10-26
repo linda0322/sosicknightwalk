@@ -273,7 +273,7 @@ const pages = [
     page: 28,
     bg: "2-0.png",
     type: "mcq",
-    text: "「吾」是甚麼意思？",
+    text: "「但少閑人如吾兩人者耳。」\n「吾」是甚麼意思？",
     options: ["A：月色", "B：竹柏", "C：我們", "D：他們"],
     answer: 2,
     points: 10,
@@ -285,7 +285,7 @@ const pages = [
     page: 29,
     bg: "2-0.png",
     type: "mcq",
-    text: "「耳」是甚麼意思？",
+    text: "「但少閑人如吾兩人者耳。」\n「耳」是甚麼意思？",
     options: ["A：然而", "B：這樣", "C：罷了", "D：耳朵"],
     answer: 2,
     points: 10,
@@ -549,7 +549,7 @@ function setupRoomPage(data) {
         scoreVal.textContent = score;
         answeredPages.add(data.page);
       }
-      phoneFeedback.textContent = `${data.note}（前往下一頁）`;
+      phoneFeedback.textContent = `${data.note}`;
       phoneFeedback.className = "feedback success";
 
       // 替換撥打按鈕為下一頁按鈕
