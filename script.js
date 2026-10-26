@@ -411,7 +411,7 @@ function renderPage() {
     if (data.type === "writing" || data.type === "oral") {
       const doneBtn = document.createElement("button");
       doneBtn.className = "action-btn";
-      doneBtn.textContent = data.type === "writing" ? "完成 ✅" : "完成 ✅";
+      doneBtn.textContent = data.type === "writing" ? "完成" : "完成";
       doneBtn.onclick = () => handleCorrect(data);
       contentBox.appendChild(doneBtn);
     } else if (data.type === "mcq" || data.type === "final_mcq") {
