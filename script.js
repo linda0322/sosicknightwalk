@@ -505,7 +505,7 @@ function handleCorrect(data) {
 
   // 第 32 頁顯示總分
   if (data.type === "final_mcq") {
-    feedbackBox.textContent = `${data.note} 🎉 遊戲完成！你的總分是：${score} 分！`;
+    feedbackBox.textContent = `${data.note} 🎉 你的總分是：${score} 分！`;
     feedbackBox.className = "feedback success";
     nextBtn.classList.add("hidden");
   } else {
