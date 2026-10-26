@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #0b151e;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", "Microsoft JhengHei", sans-serif;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#app-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 鎖定 iPhone 9:16 比例容器 */
+#game-container {
+  position: relative;
+  width: 100%;
+  max-width: calc(100vh * 9 / 16);
+  height: 100vh;
+  max-height: calc(100vw * 16 / 9);
+  background-color: #163047;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+/* 隱藏元素工具類 */
+.hidden {
+  display: none !important;
+}
+
+/* 右下角分數 */
+#score-display {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #ffd166;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* 下半部對白與題目區（配合 2.png 下半部留白位置） */
+#dialogue-area {
+  position: absolute;
+  top: 62.5%;
+  left: 0;
+  width: 100%;
+  height: 37.5%;
+  padding: 12px 18px 48px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+#page-indicator {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 4px;
+}
+
+#content-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.dialogue-text {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  letter-spacing: 0.5px;
+  white-space: pre-line;
+}
+
+/* 楷體大字置中（第 5 頁） */
+.kaiti-large {
+  font-family: "Kaiti TC", "STKaiti", "BiauKai", "DFKai-SB", "KaiTi", serif;
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 8px 0;
+  color: #ffd166;
+  letter-spacing: 8px;
+}
+
+/* 對白下方附圖（meme 圖片） */
+.meme-img {
+  max-height: 110px;
+  max-width: 85%;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 4px auto;
+  display: block;
+}
+
+/* 選項按鈕網格（2x2 排列方便手機點擊） */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-btn:hover, .option-btn:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.option-btn.correct {
+  background: rgba(46, 204, 113, 0.35);
+  border-color: #2ecc71;
+}
+
+.option-btn.wrong {
+  background: rgba(231, 76, 60, 0.35);
+  border-color: #e74c3c;
+}
+
+/* 第 31 頁：多選題列表 */
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkbox-item input {
+  transform: scale(1.2);
+}
+
+/* 文字輸入題（第 24 頁） */
+.text-input-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.text-input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* 通用按鈕與下一頁按鈕 */
+.action-btn, .next-btn {
+  background: #ffd166;
+  color: #163047;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.action-btn:hover, .next-btn:hover {
+  opacity: 0.9;
+}
+
+#nav-box {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+
+/* 答對 / 答錯提示訊息 */
+.feedback {
+  font-size: 0.92rem;
+  font-weight: bold;
+  min-height: 22px;
+  margin-top: 4px;
+}
+
+.feedback.success {
+  color: #4cd137;
+}
+
+.feedback.error {
+  color: #ff6b6b;
+}
+
+/* ================= 第 15 頁：房間解謎專用樣式 ================= */
+#room-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+}
+
+/* 畫面上方半透明無框長方形 */
+#phone-input-bar {
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  width: 88%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.phone-title {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #f1f2f6;
+}
+
+.phone-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.phone-fields input {
+  background: rgba(0, 0, 0, 0.35);
+  border: none;
+  border-bottom: 2px solid #ffd166;
+  color: #fff;
+  font-size: 1.25rem;
+  font-family: monospace;
+  text-align: center;
+  padding: 4px 2px;
+  border-radius: 4px;
+  outline: none;
+}
+
+#phone-p1 { width: 58px; }
+#phone-p2 { width: 72px; }
+#phone-p3 { width: 72px; }
+
+/* 5 個隱形互動座標按鈕 (根據 3.png 比例精準定位) */
+.hotspot {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* 座標 1：紙條（桌上右側） */
+#hs-paper {
+  top: 62%;
+  left: 68%;
+  width: 31%;
+  height: 4.5%;
+}
+
+/* 座標 2：右邊上方櫃 */
+#hs-top-drawer {
+  top: 66.5%;
+  left: 33.5%;
+  width: 66.5%;
+  height: 16.5%;
+}
+
+/* 座標 3：右邊下邊櫃 */
+#hs-bottom-drawer {
+  top: 83.5%;
+  left: 33.5%;
+  width: 66.5%;
+  height: 16.5%;
+}
+
+/* 座標 4：左邊櫃 */
+#hs-left-cabinet {
+  top: 66.5%;
+  left: 0%;
+  width: 33%;
+  height: 33.5%;
+}
+
+/* 座標 5：麻雀牌（桌上左側） */
+#hs-mahjong {
+  top: 61%;
+  left: 0%;
+  width: 24%;
+  height: 5.5%;
+}
+
+/* ================= 彈出式 Modal 視窗 ================= */
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.78);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  padding: 20px;
+}
+
+.modal-content {
+  position: relative;
+  background: #1e3750;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  padding: 24px 16px 16px 16px;
+  max-width: 92%;
+  max-height: 80%;
+  overflow-y: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#modal-body img {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 8px;
+}
+
+#modal-body iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
+}
