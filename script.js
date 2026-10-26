@@ -411,7 +411,7 @@ function renderPage() {
     if (data.type === "writing" || data.type === "oral") {
       const doneBtn = document.createElement("button");
       doneBtn.className = "action-btn";
-      doneBtn.textContent = data.type === "writing" ? "完成書寫 ✅（+50 分）" : "完成口頭翻譯 ✅（+50 分）";
+      doneBtn.textContent = data.type === "writing" ? "完成 ✅" : "完成 ✅";
       doneBtn.onclick = () => handleCorrect(data);
       contentBox.appendChild(doneBtn);
     } else if (data.type === "mcq" || data.type === "final_mcq") {
@@ -442,7 +442,7 @@ function renderPage() {
       input.placeholder = "請輸入答案⋯⋯";
       const submitBtn = document.createElement("button");
       submitBtn.className = "action-btn";
-      submitBtn.textContent = "提交";
+      submitBtn.textContent = "確認";
       submitBtn.onclick = () => {
         if (input.value.trim() === data.answer) {
           handleCorrect(data);
@@ -473,7 +473,7 @@ function renderPage() {
       const submitBtn = document.createElement("button");
       submitBtn.className = "action-btn";
       submitBtn.style.marginTop = "6px";
-      submitBtn.textContent = "確認提交";
+      submitBtn.textContent = "確認";
       submitBtn.onclick = () => {
         const selected = checkboxes
           .filter(c => c.checked)
@@ -549,7 +549,7 @@ function setupRoomPage(data) {
         scoreVal.textContent = score;
         answeredPages.add(data.page);
       }
-      phoneFeedback.textContent = `${data.note}（點擊下方前往下一頁）`;
+      phoneFeedback.textContent = `${data.note}（前往下一頁）`;
       phoneFeedback.className = "feedback success";
 
       // 替換撥打按鈕為下一頁按鈕
