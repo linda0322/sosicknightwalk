@@ -1,4 +1,3 @@
-// 遊戲頁面資料（共 32 頁）
 const pages = [
   // 第 1-3 頁：1.png
   {
@@ -356,7 +355,15 @@ const closeModalBtn = document.getElementById("close-modal");
 function renderPage() {
   const data = pages[currentIndex];
   gameContainer.style.backgroundImage = `url('${data.bg}')`;
-  pageIndicator.textContent = `Page ${data.page} / ${pages.length}`;
+
+  // 頭 3 頁不顯示頁數
+  if (data.page <= 3) {
+    pageIndicator.classList.add("hidden");
+  } else {
+    pageIndicator.classList.remove("hidden");
+    pageIndicator.textContent = `Page ${data.page} / ${pages.length}`;
+  }
+
   contentBox.innerHTML = "";
   feedbackBox.textContent = "";
   feedbackBox.className = "feedback";
