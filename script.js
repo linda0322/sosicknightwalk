@@ -33,10 +33,10 @@ const pages = [
     page: 5,
     bg: "2.png",
     type: "writing",
-    text: "請書寫：（50 分）",
+    text: "請書寫（50 分）：",
     kaitiText: "貶官",
     points: 50,
-    note: "答對了！成功書寫「貶官」。"
+    note: "成功！"
   },
 
   // 第 6 頁：2.png
@@ -120,7 +120,7 @@ const pages = [
     page: 13,
     bg: "2.png",
     type: "dialogue",
-    text: "懷民跟我一樣都被貶官至黃州。他應該能明白我的苦悶 😭。",
+    text: "懷民跟我一樣都被貶官至黃州。他應該能明白我的苦悶。😭",
     image: "bromeme.png"
   },
 
@@ -145,7 +145,7 @@ const pages = [
   // 第 16 頁：2.png
   {
     page: 16,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "dialogue",
     text: "懷民，你有空嗎？"
   },
@@ -174,7 +174,7 @@ const pages = [
   // 第 19 頁：2.png
   {
     page: 19,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "dialogue",
     text: "今天月色很美。我可以來承天寺找你嗎？"
   },
@@ -191,7 +191,7 @@ const pages = [
   // 第 21 頁：2.png
   {
     page: 21,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "懷民住在哪裏？（10 分）",
     options: ["A：飛天寺", "B：承天寺", "C：承大寺", "D：飛大寺"],
@@ -203,7 +203,7 @@ const pages = [
   // 第 22 頁：2.png
   {
     page: 22,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "「相與步於中庭」中的「相與」是甚麼意思？（10 分）",
     options: ["A：想像", "B：與其", "C：一起", "D：慢慢"],
@@ -215,7 +215,7 @@ const pages = [
   // 第 23 頁：2.png
   {
     page: 23,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "月光照在庭院中，好像 ⬜️⬜️ 的 🔵🔵。\n\n⬜️⬜️ 和 🔵🔵 分別代表甚麼？（10 分）",
     options: ["A：澄明；鏡子", "B：清澈；積水", "C：潔淨；海水", "D：乾淨；氈子"],
@@ -227,28 +227,28 @@ const pages = [
   // 第 24 頁：2.png
   {
     page: 24,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "input",
     text: "懷民，你看看這些竹子和柏樹的 ⬜️⬜️，你覺得像不像水中的藻荇？（50 分）",
     answer: "影子",
     points: 50,
-    note: "答對了！「竹柏影」就是竹子和柏樹的影子。"
+    note: "答對了！"
   },
 
   // 第 25 頁：2.png
   {
     page: 25,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "oral",
     text: "「何夜無月？何處無竹柏？」請口頭翻譯這兩個句子。（50 分）",
     points: 50,
-    note: "答對了！（參考翻譯：哪一夜沒有月光？哪一個地方沒有竹子和柏樹？）"
+    note: "答對了！（參考：哪一夜沒有月光？哪一個地方沒有竹子和柏樹？）"
   },
 
   // 第 26 頁：2.png
   {
     page: 26,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "剛剛的句子用了甚麼修辭手法？（10 分）",
     options: ["A：反問", "B：設問", "C：對比", "D：比喻"],
@@ -260,7 +260,7 @@ const pages = [
   // 第 27 頁：2.png
   {
     page: 27,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "「但少閑人如吾兩人者耳。」\n「但」是甚麼意思？",
     options: ["A：不但", "B：唯有", "C：一旦", "D：只是"],
@@ -272,7 +272,7 @@ const pages = [
   // 第 28 頁：2.png
   {
     page: 28,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "「吾」是甚麼意思？",
     options: ["A：月色", "B：竹柏", "C：我們", "D：他們"],
@@ -284,7 +284,7 @@ const pages = [
   // 第 29 頁：2.png
   {
     page: 29,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "mcq",
     text: "「耳」是甚麼意思？",
     options: ["A：然而", "B：這樣", "C：罷了", "D：耳朵"],
@@ -296,7 +296,7 @@ const pages = [
   // 第 30 頁：2.png
   {
     page: 30,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "dialogue",
     text: "沒有甚麼人能像我們這樣清閒，還能一起夜遊作樂。"
   },
@@ -304,9 +304,9 @@ const pages = [
   // 第 31 頁：2.png
   {
     page: 31,
-    bg: "2.png",
+    bg: "2-0.png",
     type: "multi",
-    text: "蘇軾說的「閒人」是甚麼意思？（可選3個答案，總分 30）",
+    text: "蘇軾說的「閒人」是甚麼意思？（總分 30）",
     options: [
       "有閒情逸致夜遊的人",
       "不重要的路人",
