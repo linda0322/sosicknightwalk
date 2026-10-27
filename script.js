@@ -576,12 +576,12 @@ document.getElementById("hs-paper").addEventListener("click", () => {
   openModalWithHTML(`<img src="paper.png" alt="紙條線索">`);
 });
 
-// 座標 2：右邊上方櫃 -> 「空空如也」
+// 座標 2：右邊櫃（上） -> 「空空如也」
 document.getElementById("hs-top-drawer").addEventListener("click", () => {
   openModalWithHTML(`<p style="font-size: 1.4rem; padding: 24px 0;">空空如也</p>`);
 });
 
-// 座標 3：右邊下邊櫃 -> areacode.png
+// 座標 3：右邊櫃（下） -> areacode.png
 document.getElementById("hs-bottom-drawer").addEventListener("click", () => {
   openModalWithHTML(`<img src="areacode.png" alt="地區號碼線索">`);
 });
